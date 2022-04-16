@@ -1,21 +1,31 @@
 "use strict"
 /* Serveur pour le site API Tick */
 let  express = require('express');
+let bodyParser = require('body-parser');
+const cors = require('cors');
+
 let attendance = require('./routers/attendance');
-let techer = require('./routers/techer');
+let techer = require('./routers/teacher');
 let student = require('./routers/student');
 let group = require('./routers/group');
-let admin = require('./routers/admin');
+let institution = require('./routers/institution');
 let auth = require('./routers/auth');
 let app = express();
 
-//get requests:
 
-app.use('/api/admin', admin);
-app.use('/api/techers', techer);
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
+//get requests:
+app.use('/api/institution', institution);
+app.use('/api/teachers', techer);
 app.use('/api/students', student);
 app.use('/api/groups', group);
 app.use('/api/attendence', attendance);
 app.use('/api/auth', auth);
 
+app.post('/', (req, res) => {
+    res.json({email:req.body.email});
+})
 app.listen(3001, () => console.log('listening on http://localhost:3001'));

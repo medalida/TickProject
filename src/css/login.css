@@ -1,0 +1,29 @@
+#admin_login{
+    background-image: url("../image/public/admin2.jpg");
+    background-size: cover;
+    position: fixed;
+    min-height: 100vh;
+    top:0;
+}
+
+#login{
+    background-image: url("../image/public/room.jpg");
+    background-size: cover;
+    position: fixed;
+    min-height: 100vh;
+    top:0;
+}
+
+#register{
+    background-image: url("../image/public/school.jpg");
+    background-size: cover;
+    position: fixed;
+    min-height: 100vh;
+    top:0;
+}
+
+@media (max-width: 600px) {
+    #login_form{
+        width: 100% !important;
+    }
+}

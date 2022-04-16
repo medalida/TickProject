@@ -1,0 +1,60 @@
+#main{
+    background: -webkit-linear-gradient(rgba(57, 176, 245, 0.5), rgba(45, 255, 167, 0.5));
+    background: linear-gradient(90deg,rgba(57, 176, 245, 0.5), rgba(45, 255, 167, 0.5));
+  background-size: cover;
+  min-height: 100vh !important;
+  position: fixed;
+  top: 0;
+}
+#container{
+    height : 100% !important;
+    min-height: 100% !important;
+}
+
+#admin{
+    background: url("../image/public/admin.jpg");
+    background-size: cover;
+    border-radius:100%;
+}
+
+#admin:hover{
+    background: -webkit-linear-gradient(rgba(45, 255, 255, 0.2), rgba(57, 176, 245, 0.2)), url("../image/public/admin.jpg");
+    background-size: cover;
+}
+
+.img{
+    height: 200px;
+    width: 200px;
+    border-radius:100%;
+}
+
+#teacher{
+    background: url("../image/public/teacher.jpg");
+    background-size: cover;
+}
+
+#teacher:hover{
+    background: -webkit-linear-gradient(rgba(45, 255, 167, 0.2), rgba(57, 245, 204, 0.2)), url("../image/public/teacher.jpg");
+    background-size: cover;
+}
+
+.img:hover{
+    width: 220px;
+    height: 220px;
+    box-shadow: 10px 5px 5px rgba(20, 148, 170, 0.2);
+}
+
+@media (max-width: 600px) { 
+
+    #container{
+        display: flex !important;
+        flex-direction: column !important;
+        height : 100% !important;
+    }
+    #main{
+        background: -webkit-linear-gradient(0deg,rgba(57, 176, 245, 0.5), rgba(45, 255, 167, 0.5));
+        background: linear-gradient(180deg,rgba(57, 176, 245, 0.5), rgba(45, 255, 167, 0.5));
+      background-size: cover;
+    }
+
+ }

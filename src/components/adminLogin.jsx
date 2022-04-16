@@ -1,23 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import axios from 'axios';
+import "../css/login.css";
 
-class AdminLogin extends Component {
-  state = {};
+let AdminLogin = (props)=> {
+  
+  let [data, setData] = useState({
+    adminEmail:'',
+    password:'',
+    });
+    let [error, setError] = useState('');
+    let [resolve, setResolve] = useState('');
 
-  onSubmit = (e) => {
+  let onSubmit = (e) => {
     e.preventDefault();
+    setError('errrrorr ereroe');
     console.log("submit");
   };
 
-  render() {
-    return (
 
-      <form onSubmit={this.onSubmit} className="d-flex flex-column justify-content-center align-items-center w-50 h-100">
-        <div className="form-group">
-          <label htmlFor="email">Email address</label>
+    return (
+    <div id="admin_login" className="w-100 h-100 d-flex flex-column justify-content-center p-4">
+      <form onSubmit={onSubmit} className=" d-flex flex-column justify-content-center align-items-center rounded w-50 bg-white h-75" id="login_form">
+          <p id='register_error' className={error?"bg-danger text-white p-1 " :""}>{error}</p>
+          <p id='register_error' className={resolve?"bg-danger text-white p-1 " :""}>{resolve}</p>
+        <div className="form-group w-75">
+          <label htmlFor="adminEmail">Admin email address</label>
           <input
             type="email"
             className="form-control"
-            id="email"
+            name="adminEmail"
             aria-describedby="emailHelp"
             placeholder="Enter email"
           />
@@ -25,31 +37,27 @@ class AdminLogin extends Component {
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
+        <div className="form-group w-75">
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            name="password"
             placeholder="Password"
           />
         </div>
-        <div className="form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Check me out
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary m-4">
-          Submit
+
+        <button type="submit" className="btn btn-primary m-5">
+          Sign in
         </button>
+
+        <p>Votre etablissement n'est pas inscrit</p>
+        <Link to="/admin/register">Sign up</Link>
       </form>
+      
+      </div>
     );
-  }
+  
 }
 
 export default AdminLogin;

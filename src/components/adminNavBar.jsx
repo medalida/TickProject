@@ -1,21 +1,17 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
-import logo from '../image/public/logo.png';
+import logo from '../image/public/logoAdmin.png';
 import logoExample from '../image/public/logo-example.png'
 import '../css/navbar.css';
 import Clock from "./clock";
 
-import 'react-clock/dist/Clock.css';
+let AdminNavBar = (props) => {
 
-
-class Navbar extends Component {
-  state = {};
-  render() {
-    return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100">
+    return(
+        <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100">
         <div className="container-fluid">
         <img src={logo} width="30" height="30" className="d-inline-block align-top m-2" alt=""/>
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="">
             Tick
           </a>
           <div className="line">
@@ -35,13 +31,13 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/home">
+                <Link className="nav-link active" aria-current="page" to="/admin">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/navigation">
-                  Navigate
+                <Link className="nav-link" to="add-techer">
+                Teachers
                 </Link>
               </li>
               <li className="nav-item">
@@ -49,19 +45,16 @@ class Navbar extends Component {
                   Students
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
-              </li>
             </ul>
             <div className="d-flex flex-row justify-content-end align-items-center w-100">
             <ul className="navbar-nav">
             <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/profil">
-                  Profil
+                <Link className="nav-link active" aria-current="page" to="/Institution">
+                  Institution
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-danger" aria-current="page" to="/home">
+                <Link className="nav-link text-danger" aria-current="page" to="">
                   Logout
                 </Link>
               </li>
@@ -73,7 +66,6 @@ class Navbar extends Component {
         </div>
       </nav>
     );
-  }
 }
 
-export default Navbar;
+export default AdminNavBar;

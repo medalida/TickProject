@@ -1,0 +1,16 @@
+.session-label{
+    background: -webkit-linear-gradient(20deg,rgb(52, 114, 93),rgb(39, 110, 112),rgb(53, 99, 110),rgb(53, 90, 110,0.3), rgba(255, 255, 255, 0)), url("../image/public/nautre.jpg");
+    height: 300px !important;
+    background-position: right;
+}
+
+.start-call-btn{
+    width: 400px !important;
+}
+
+.time-frame{
+    min-height: 150px !important;
+}
+.date-frame{
+    height: 80px !important;
+}

@@ -1,0 +1,33 @@
+#clock {
+    
+    height: 50px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(85, 85, 85);
+    background-color: #111;
+    transition: 0.5s;
+  }
+  #clock h1 {
+    font-size: 2em;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  #clock h1::-moz-selection {
+    background-color: transparent;
+  }
+  #clock h1::selection {
+    background-color: transparent;
+  }
+  .faded {
+    opacity: 0;
+  }
+  #instruction {
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    font-family: Roboto;
+    font-size: 18px;
+  }

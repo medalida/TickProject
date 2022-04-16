@@ -1,4 +1,4 @@
-
+const jwt = require("jsonwebtoken");
 
 let auth = (req, res, next)=>{
     let token = req.header("x-auth-token");
@@ -15,14 +15,14 @@ let auth = (req, res, next)=>{
 
 let isTecher = (req, res, next)=>{
     let user = req.user;
-    if(user.role === "techer") next();
-    else return res.status(401).send("Access denied. No token provided.");
+    if(user.role === "teacher") next();
+    else return res.status(401).send("Access denied.");
 }
 
 let isAdmin = (req, res, next)=>{
     let user = req.user;
     if(user.role === "admin") next();
-    else return res.status(401).send("Access denied. No token provided.");
+    else return res.status(401).send("Access denied.");
 }
 
 module.exports = {isAdmin, isTecher, auth};
