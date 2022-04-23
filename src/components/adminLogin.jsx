@@ -1,21 +1,42 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link , useNavigate} from "react-router-dom";
+import {adminLogin} from "../tools/apiAuthServices.js";
+import {getAdmin} from '../tools/auth';
 import axios from 'axios';
 import "../css/login.css";
 
 let AdminLogin = (props)=> {
   
   let [data, setData] = useState({
-    adminEmail:'',
+    email:'',
     password:'',
     });
+
     let [error, setError] = useState('');
     let [resolve, setResolve] = useState('');
+    let navigate = useNavigate();
 
-  let onSubmit = (e) => {
+    let getInputValue = (event)=>{
+      let newdata = {...data};
+      newdata[event.target.name] = event.target.value;
+      setData(newdata);
+    }
+
+    useEffect(()=>{
+      let token = localStorage.getItem('admin-token');
+      let user = getAdmin(token);
+      if(user && user.role ==='admin')
+        navigate("/admin", { replace: true });
+    });
+
+  let onSubmit = async(e) => {
     e.preventDefault();
-    setError('errrrorr ereroe');
-    console.log("submit");
+    let response = await adminLogin({...data});
+    setError(response.error);
+    setResolve(response.resolve);
+    if(localStorage.getItem('admin-token')){
+      navigate("/admin", { replace: true });
+    }
   };
 
 
@@ -29,9 +50,10 @@ let AdminLogin = (props)=> {
           <input
             type="email"
             className="form-control"
-            name="adminEmail"
+            name="email"
             aria-describedby="emailHelp"
             placeholder="Enter email"
+            onChange={getInputValue}
           />
           <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
@@ -44,6 +66,7 @@ let AdminLogin = (props)=> {
             className="form-control"
             name="password"
             placeholder="Password"
+            onChange={getInputValue}
           />
         </div>
 

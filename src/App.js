@@ -15,16 +15,20 @@ import './css/App.css';
 export const TeacherContext = React.createContext();
 
 function App() {
+  
   let [teacher, setTeacher] = useState(null);
   let navigate = useNavigate();
 
   useEffect(()=>{
-    setTeacher(getTeacher());
-    if(teacher == null)
-      return;
-      //navigate("/login", { replace: true });
-
-  })
+    if(!teacher){
+      let token = localStorage.getItem('token');
+      let user = getTeacher(token);
+      setTeacher({...user});
+      if(!user)
+      navigate("/login", { replace: true });
+    }
+  });
+  
   return (
     <TeacherContext.Provider value="{teacher}">
     <Navbar/>

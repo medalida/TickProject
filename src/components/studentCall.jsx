@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/profil.css";
-import img from "../image/public/teacher.jpg";
+import img from "../image/public/profil.jpg";
 
 let StudentCall = (props)=>{
   

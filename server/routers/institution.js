@@ -20,16 +20,7 @@ router.post('/login', (req, res) => {
     institution = db.selectWorkspace.get(req.body.email);
     if(!institution) return res.status(400).send('Invalid email or password');
     if(bcrypt.compare(req.body.password, institution.password)){
-        let token = jwt.sign(
-            {
-              id: institution.id,
-              name: institution.name,
-              logo: institution.logo,
-              adminEmail: institution.adminEmail,
-              role: 'admin'
-            },
-            "TICK20222"
-          );
+        const token = getToken(institution); 
         return res.send(token);
     }else{
         return res.status(400).send('Invalid email or password');
@@ -51,19 +42,10 @@ router.post('/register', (req, res) => {
         user.password = 
         db.insertWorkspace.run(user);
         let institution = db.selectWorkspace.get(req.body.adminEmail);
-        const token = jwt.sign(
-            {
-              id: institution.id,
-              name: institution.name,
-              logo: institution.logo,
-              adminEmail: institution.adminEmail,
-              role: 'admin'
-            },
-            "TICK20222"
-          );
+        const token = getToken(institution);
         return res.send(token);
     }catch(e){
-        console.error(e);
+        console.error(e.message);
         res.status(400).send("Error while registering");
     }
 });
@@ -71,6 +53,19 @@ router.post('/register', (req, res) => {
 router.post('/add-teacher',[auth, isAdmin], (req, res) => {
 
 });
+
+let getToken = (institution)=>{
+  return jwt.sign(
+    {
+      id: institution.id,
+      name: institution.name,
+      logo: institution.logo,
+      adminEmail: institution.adminEmail,
+      role: 'admin'
+    },
+    "a58b5d47f2e5961c025d2e874aa2b54d"
+  );
+}
 
 
 module.exports = router;

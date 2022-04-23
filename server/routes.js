@@ -19,9 +19,9 @@ app.use(cors());
 
 //get requests:
 app.use('/api/institution', institution);
-app.use('/api/teachers', techer);
-app.use('/api/students', student);
-app.use('/api/groups', group);
+app.use('/api/teacher', techer);
+app.use('/api/student', student);
+app.use('/api/group', group);
 app.use('/api/attendence', attendance);
 app.use('/api/auth', auth);
 

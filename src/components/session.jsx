@@ -6,7 +6,7 @@ import "../css/session.css";
 let Session = (props) => {
   let session;
   return (
-    <div className="d-flex flex-column justify-content-start h-100 pt-5">
+    <div className="d-flex flex-column justify-content-start h-100 ">
       <div className="session-label d-flex flex-column justify-content-end w-100 p-3 text-white">
         <h1>sessionName</h1>
         <h3>Group</h3>

@@ -88,7 +88,8 @@ let insertSession = db.prepare('INSERT INTO session VALUES (NULL, @name, @teache
 let selectSession = db.prepare('SELECT * FROM session WHERE date(startTime) = ?');
 
 let insertGroup = db.prepare('INSERT INTO groups VALUES (NULL, @name)');
+let selectGroup = db.prepare('SELECT * FROM group WHERE name = ?');
 
 //insertWorkspace.run({name:"work", logo:"lgoo"})
 
-module.exports = {db, insertTeacher, insertStudent, insertWorkspace, insertSession, insertGroup, selectSession, selectTeacher, selectWorkspace};
+module.exports = {db, insertTeacher, insertStudent, insertWorkspace, insertSession, insertGroup, selectGroup, selectSession, selectTeacher, selectWorkspace};

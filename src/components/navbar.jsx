@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import logo from '../image/public/logo.png';
 import logoExample from '../image/public/logo-example.png'
 import '../css/navbar.css';
@@ -7,11 +7,15 @@ import Clock from "./clock";
 
 import 'react-clock/dist/Clock.css';
 
+let Navbar =(props)=> {
+  let navigate = useNavigate();
 
-class Navbar extends Component {
-  state = {};
-  render() {
-    return (
+  let logout = () => {
+    console.log("logout");
+    localStorage.removeItem("token");
+    navigate("/navigation", { replace: true });
+  };
+   return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100">
         <div className="container-fluid">
         <img src={logo} width="30" height="30" className="d-inline-block align-top m-2" alt=""/>
@@ -61,7 +65,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-danger" aria-current="page" to="/home">
+                <Link className="nav-link text-danger" aria-current="page" to="/login" onClick={logout}>
                   Logout
                 </Link>
               </li>
@@ -73,7 +77,7 @@ class Navbar extends Component {
         </div>
       </nav>
     );
-  }
+  
 }
 
 export default Navbar;

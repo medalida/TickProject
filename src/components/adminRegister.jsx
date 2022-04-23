@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link , useNavigate} from "react-router-dom";
+import {getAdmin} from '../tools/auth';
 import {register} from "../tools/apiAuthServices.js";
 
 let AdminRegister = (props) => {
@@ -15,10 +16,16 @@ let AdminRegister = (props) => {
     let [resolve, setResolve] = useState('');
     let navigate = useNavigate();
   
+    useEffect(()=>{
+      let token = localStorage.getItem('admin-token');
+      let user = getAdmin(token);
+      if(user && user.role ==='admin')
+        navigate("/admin", { replace: true });
+    });
 
   let getInputValue = (event)=>{
-    let newdata = data;
-    data[event.target.name] = event.target.value;
+    let newdata = {...data};
+    newdata[event.target.name] = event.target.value;
     setData(newdata);
   }
 
@@ -40,7 +47,7 @@ let AdminRegister = (props) => {
     setError(response.error);
     setResolve(response.resolve);
     if(localStorage.getItem('token')){
-      navigate("/home", { replace: true });
+      navigate("/admin", { replace: true });
     }
   }
 
