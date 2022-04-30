@@ -1,43 +1,24 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { TeacherContext } from "../App";
-import { addTeacher } from "../tools/apiAdminServices";
+import React, { useState, useEffect } from "react";
+import img from "../image/public/teacher_img.jpg";
 
-let TeacherFrom = (props) => {
-  let [data, setData] = useState({
-    firstName: "",
-    lastName: "",
-    birthdate: "",
-    email: "",
-  });
-
+let Profil = (props) => {
   let [error, setError] = useState("");
   let [resolve, setResolve] = useState("");
-  let navigate = useNavigate();
-
-  let getInputValue = (event) => {
-    let newdata = { ...data };
-    newdata[event.target.name] = event.target.value;
-    console.log(newdata);
-    setData(newdata);
-  };
+  let [edit, setEdit] = useState(false);
 
   let onSubmit = async (event) => {
-    event.preventDefault();
-    let response = await addTeacher({ ...data });
-    setError(response.error);
-    setResolve(response.resolve);
-    if (response.resolve) {
-      navigate("/home", { replace: true });
-    }
+      event.preventDefault();
+      setEdit(!edit);
   };
 
-  const value = React.useContext(TeacherContext) | props.teacher;
+  let getInputValue = (event) => {};
+
   return (
     <div
       className="w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4"
       onSubmit={onSubmit}
     >
+      <img className="m-3" id="student-img" src={img} alt="" />
       <form className="d-flex flex-column justify-content-center align-items-center w-50 h-100">
         <p
           id="register_error"
@@ -59,8 +40,9 @@ let TeacherFrom = (props) => {
             name="firstName"
             aria-describedby="nameHelp"
             placeholder="Enter first name"
-            required
+            value="Firstname"
             onChange={getInputValue}
+            disabled={true}
           />
         </div>
 
@@ -72,13 +54,14 @@ let TeacherFrom = (props) => {
             name="lastName"
             aria-describedby="nameHelp"
             placeholder="Enter last name"
-            required
+            value="LASTNAME"
             onChange={getInputValue}
+            disabled={true}
           />
         </div>
         <div className="form-group py-2">
           <label className="control-label" htmlFor="birthdate">
-            Birthdate
+          Birthdate
           </label>
           <input
             className="form-control"
@@ -87,11 +70,12 @@ let TeacherFrom = (props) => {
             placeholder="MM/DD/YYY"
             option={{ format: "yyyy/MM/dd" }}
             type="date"
+            value="1991-03-31"
             onChange={getInputValue}
-            required
+            disabled={true}
           />
         </div>
-        <div className="form-group w-75 py-2">
+        <div className="form-group w-75 p-2">
           <label htmlFor="email">Email address</label>
           <input
             type="email"
@@ -99,22 +83,60 @@ let TeacherFrom = (props) => {
             name="email"
             aria-describedby="emailHelp"
             placeholder="Enter email"
-            required
+            value="firstname.lastname@institution.org"
             onChange={getInputValue}
+            disabled={true}
           />
         </div>
-        <div className="mb-3 w-75 py-2">
-          <label htmlFor="formFile" className="form-label">
-            Profil image
-          </label>
-          <input className="form-control" type="file" id="formFile" />
-        </div>
+
+        {edit ? (
+          <React.Fragment>
+            <div className="form-group w-75 p-2">
+              <label htmlFor="oldpassword">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name="oldpassword"
+                placeholder="Old password"
+                onChange={getInputValue}
+                required
+              />
+            </div>
+
+            <div className="form-group w-75 p-2">
+              <label htmlFor="newpassword">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name="newpassword"
+                placeholder="New password"
+                onChange={getInputValue}
+                required
+              />
+            </div>
+
+            <div className="form-group w-75 p-2">
+              <label htmlFor="confirmpassword">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                name="confirmpassword"
+                placeholder="Confirm password"
+                onChange={getInputValue}
+                required
+              />
+            </div>
+            </React.Fragment>
+        ) : (
+          <div></div>
+        )}
+
         <button type="submit" className="btn btn-primary m-4">
-          Add Teacher
+          {edit? "Save new password" : "Change Password"}
         </button>
       </form>
     </div>
   );
 };
 
-export default TeacherFrom;
+export default Profil;

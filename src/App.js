@@ -6,6 +6,7 @@ import TeacherFrom from "./components/teacherForm";
 import SessionForm from "./components/sessionForm";
 import Navigation from "./components/navigation";
 import Call from "./components/call";
+import Profil from "./components/profil";
 import Session from "./components/session";
 import Home from "./components/home";
 import Groups from "./components/groups";
@@ -40,7 +41,7 @@ let App = (props) => {
           exact
           element={<SessionForm isAdmin={false} user={teacher} />}
         />
-        <Route path="/profil" exact element={<TeacherFrom />} />
+        <Route path="/profil" exact element={<Profil />} />
         <Route path="/profil/edit" exact element={<TeacherFrom />} />
         <Route path="/groups" exact element={<Groups />} />
         <Route path="/groups/:id" exact element={<Students />} />

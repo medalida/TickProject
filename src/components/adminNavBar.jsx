@@ -74,7 +74,7 @@ let AdminNavBar = (props) => {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/Institution"
+                  to="/admin/intitut"
                 >
                   Institution
                 </Link>

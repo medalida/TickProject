@@ -47,6 +47,9 @@ let LoginForm = (props) => {
         className="d-flex flex-column justify-content-center align-items-center bg-white w-50 h-75"
         id="login_form"
       >
+        <h1>Login</h1>
+        <p id='register_error' className={error?"bg-danger text-white p-1" :""}>{error}</p>
+          <p id='register_error' className={resolve?"bg-danger text-white p-1" :""}>{resolve}</p>
         <div className="form-group w-75">
           <label htmlFor="email">Email address</label>
           <input

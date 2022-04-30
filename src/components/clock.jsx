@@ -1,4 +1,7 @@
 
+//NOTE: cette classe et de source externe.
+//je l'ai utilisé pour placer une horloge dans le menu de l'application.
+
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 import '../css/clock.css';

@@ -9,6 +9,7 @@ import GroupForm from "./components/groupForm";
 import Groups from './components/groups';
 import Students from './components/students';
 import Student from './components/student';
+import Institution from "./components/institution";
 
 export const AdminContext = React.createContext();
 //import './admin.css';
@@ -39,6 +40,7 @@ function Admin() {
           element={<SessionForm isAdmin={true} user={admin} />}
         />
         <Route path="/add-group" exact element={<GroupForm />} />
+        <Route path="/intitut" exact element={<Institution />} />
         <Route path="/groups/:id" exact element={<Students />} />
         <Route path="/students/:id" exact element={<Student />} />
       </Routes>

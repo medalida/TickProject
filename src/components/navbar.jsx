@@ -53,9 +53,7 @@ let Navbar =(props)=> {
                   Students
                 </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
-              </li>
+
             </ul>
             <div className="d-flex flex-row justify-content-end align-items-center w-100">
             <ul className="navbar-nav">

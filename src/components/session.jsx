@@ -8,15 +8,15 @@ let Session = (props) => {
   return (
     <div className="d-flex flex-column justify-content-start h-100 ">
       <div className="session-label d-flex flex-column justify-content-end w-100 p-3 text-white">
-        <h1>sessionName</h1>
-        <h3>Group</h3>
+        <h1 className=" text-white">sessionName</h1>
+        <h3 className=" text-white">Group</h3>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center w-100 p-5">
-        <div className="time-frame w-25 text-center">
+        <div className="time-frame d-flex flex-column justify-content-center align-items-center w-25 text-center">
           <div className="date-frame w-100 fs-2 bg-light rounded m-2 text-center">
             Monday 15 april 2022
           </div>
-          <div className="d-flex flex-row justify-content-center align-items-center h-50 m-1">
+          <div className="d-flex flex-row justify-content-center align-items-center w-100 h-50 m-1">
             <div className="w-50 h-50 text-center fs-4 bg-light rounded mx-1">
               <strong>start</strong>
               <p>10:11</p>
