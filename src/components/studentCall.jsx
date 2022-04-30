@@ -18,10 +18,6 @@ let state = {
   let isPresent = (e) => {
     let nextButton = document.querySelector(".swiper-button-next");
     setPresent(true);
-    //props.mark(props.studentId, present);
-    console.log("this" + present);
-    //e.target.className = "btn btn-success mx-2";
-    
     nextButton.click();
   };
 

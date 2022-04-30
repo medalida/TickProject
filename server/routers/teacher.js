@@ -38,4 +38,14 @@ router.post('/add',[auth, isAdmin], (req, res)=>{
     }
 });
 
+router.get('/all', [auth, isAdmin], (req, res)=>{
+    try{
+        let groups = db.selectAllTeacher.all(req.user.id);
+        return res.json(groups);
+    }catch(e){
+        console.log(e.message);
+        return res.status(400).send("Error");
+    }
+});
+
 module.exports = router;

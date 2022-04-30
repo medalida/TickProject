@@ -1,0 +1,12 @@
+.group-card {
+  width: 250px;
+  height: 100px;
+  background: #69ffdf;
+  border-radius: 10%;
+    font-size: 20pt;
+}
+
+.group-card:hover{
+    background: #08e6c1;
+}
+

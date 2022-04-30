@@ -19,9 +19,9 @@ let Navbar =(props)=> {
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top w-100">
         <div className="container-fluid">
         <img src={logo} width="30" height="30" className="d-inline-block align-top m-2" alt=""/>
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/home">
             Tick
-          </a>
+          </Link>
           <div className="line">
           </div>
           <img src={logoExample} height="30" className="d-inline-block align-top m-3" alt=""/>
@@ -49,9 +49,9 @@ let Navbar =(props)=> {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/groups">
                   Students
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled">Disabled</a>

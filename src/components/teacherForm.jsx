@@ -16,7 +16,7 @@ let TeacherFrom = (props) => {
   let navigate = useNavigate();
 
   let getInputValue = (event) => {
-    let newdata = {...data};
+    let newdata = { ...data };
     newdata[event.target.name] = event.target.value;
     console.log(newdata);
     setData(newdata);
@@ -24,7 +24,7 @@ let TeacherFrom = (props) => {
 
   let onSubmit = async (event) => {
     event.preventDefault();
-    let response = await addTeacher({...data});
+    let response = await addTeacher({ ...data });
     setError(response.error);
     setResolve(response.resolve);
     if (response.resolve) {
@@ -39,8 +39,18 @@ let TeacherFrom = (props) => {
       onSubmit={onSubmit}
     >
       <form className="d-flex flex-column justify-content-center align-items-center w-50 h-100">
-      <p id='register_error' className={error?"bg-danger text-white p-1 " :""}>{error}</p>
-          <p id='register_error' className={resolve?"bg-danger text-white p-1 " :""}>{resolve}</p>
+        <p
+          id="register_error"
+          className={error ? "bg-danger text-white p-1 " : ""}
+        >
+          {error}
+        </p>
+        <p
+          id="register_error"
+          className={resolve ? "bg-danger text-white p-1 " : ""}
+        >
+          {resolve}
+        </p>
         <div className="form-group w-75 py-2">
           <label htmlFor="firstName">First Name</label>
           <input
@@ -55,7 +65,7 @@ let TeacherFrom = (props) => {
         </div>
 
         <div className="form-group w-75 py-2">
-          <label htmlFor="lastName">First Name</label>
+          <label htmlFor="lastName">Last Name</label>
           <input
             type="text"
             className="form-control"

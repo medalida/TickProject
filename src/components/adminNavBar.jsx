@@ -24,9 +24,9 @@ let AdminNavBar = (props) => {
           className="d-inline-block align-top m-2"
           alt=""
         />
-        <a className="navbar-brand" href="">
-          Tick
-        </a>
+        <Link className="navbar-brand" to="/admin">
+          Tick | Admin
+        </Link>
         <div className="line"></div>
         <img
           src={logoExample}
@@ -58,9 +58,14 @@ let AdminNavBar = (props) => {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="add-session">
+                Sessions
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="groups">
                 Students
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="d-flex flex-row justify-content-end align-items-center w-100">

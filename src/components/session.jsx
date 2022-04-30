@@ -34,6 +34,9 @@ let Session = (props) => {
           </button>
         </Link>
         <Attendence />
+        <button className="btn btn-info btn-lg start-call-btn m-4">
+            Save changes
+          </button>
       </div>
     </div>
   );

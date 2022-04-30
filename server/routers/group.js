@@ -9,6 +9,7 @@ const schema = Joi.object({
 
 router.post('/', [auth, isAdmin], (req, res) => {
     let {error} = schema.validate(req.body);
+
     if (error) return res.status(400).send(error.message);
 
     try{
@@ -26,7 +27,7 @@ router.post('/', [auth, isAdmin], (req, res) => {
 
 router.get('/all', auth, (req, res)=>{
     try{
-        let groups = db.prepare('SELECT * FROM group;').run();
+        let groups = db.selectAllGroup.all();
         return res.json(groups);
     }catch(e){
         console.log(e.message);

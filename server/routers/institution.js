@@ -27,7 +27,6 @@ router.post('/login', (req, res) => {
     }
 });
 
-
 //POST: register
 router.post('/register', (req, res) => {
     let {error} = schema.validate(req.body);

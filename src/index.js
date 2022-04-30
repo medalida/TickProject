@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 import './css/index.css';
-import App from './App.js';
+import App from './App';
 import Admin from './Admin.js';
 import Connect from './components/connect';
 import reportWebVitals from './reportWebVitals.js';
