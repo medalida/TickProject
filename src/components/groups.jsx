@@ -10,7 +10,7 @@ let Groups = (props)=>{
 
     let getData = async ()=>{
         let isAdmin = props.isAdmin | false;
-        let response = await getGroups(isAdmin);
+        let response = await getGroups(props.isAdmin);
         setGroups(response.data);
     }
     

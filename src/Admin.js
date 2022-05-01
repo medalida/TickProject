@@ -10,6 +10,7 @@ import Groups from './components/groups';
 import Students from './components/students';
 import Student from './components/student';
 import Institution from "./components/institution";
+import Home from './components/adminHome'
 
 export const AdminContext = React.createContext();
 //import './admin.css';
@@ -33,6 +34,7 @@ function Admin() {
       <Routes>
         <Route path="/add-techer" exact element={<TeacherFrom />} />
         <Route path="/add-student" exact element={<StudentForm />} />
+        <Route path="/home" exact element={<Home />} />
         <Route path="/groups" exact element={<Groups isAdmin={true}/>} />
         <Route
           path="/add-session"

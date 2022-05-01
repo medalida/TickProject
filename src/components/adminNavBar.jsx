@@ -24,7 +24,7 @@ let AdminNavBar = (props) => {
           className="d-inline-block align-top m-2"
           alt=""
         />
-        <Link className="navbar-brand" to="/admin">
+        <Link className="navbar-brand" to="/admin/home">
           Tick | Admin
         </Link>
         <div className="line"></div>
@@ -48,7 +48,7 @@ let AdminNavBar = (props) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/admin">
+              <Link className="nav-link active" aria-current="page" to="/admin/home">
                 Home
               </Link>
             </li>

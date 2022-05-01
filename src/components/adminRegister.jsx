@@ -73,20 +73,7 @@ let AdminRegister = (props) => {
             required
           />
         </div>
-        <div className="form-group w-75">
-          <label htmlFor="adminEmail">Admin email address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            name="adminEmail"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            onChange={getInputValue}
-            required
-          />
 
-        </div>
         <div className="form-group w-75 d-flex flex-row align-items-center">
         <div className="form-group w-75">
           <label htmlFor="logo">Institution logo</label>
@@ -104,6 +91,20 @@ let AdminRegister = (props) => {
         </div>
         <div className="d-flex flex-column align-items-center">
             <div id="logo_show"></div>
+        </div>
+        <div className="form-group w-75">
+          <label htmlFor="adminEmail">Admin email address</label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            name="adminEmail"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            onChange={getInputValue}
+            required
+          />
+
         </div>
         <div className="form-group w-75">
           <label htmlFor="password">Password</label>

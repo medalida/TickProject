@@ -43,7 +43,7 @@ let App = (props) => {
         />
         <Route path="/profil" exact element={<Profil />} />
         <Route path="/profil/edit" exact element={<TeacherFrom />} />
-        <Route path="/groups" exact element={<Groups />} />
+        <Route path="/groups" exact element={<Groups isAdmin={false}/>} />
         <Route path="/groups/:id" exact element={<Students />} />
         <Route path="/students/:id" exact element={<Student />} />
       </Routes>

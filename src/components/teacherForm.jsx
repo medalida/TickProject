@@ -28,7 +28,7 @@ let TeacherFrom = (props) => {
     setError(response.error);
     setResolve(response.resolve);
     if (response.resolve) {
-      navigate("/home", { replace: true });
+      navigate("/admin", { replace: true });
     }
   };
 
