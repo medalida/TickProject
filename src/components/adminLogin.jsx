@@ -74,7 +74,7 @@ let AdminLogin = (props)=> {
           Sign in
         </button>
 
-        <p>Votre etablissement n'est pas inscrit</p>
+        <p>Your etablissement is not registred ?</p>
         <Link to="/admin/register">Sign up</Link>
       </form>
       

@@ -14,7 +14,7 @@ let GroupForm = (props) => {
     setError(response.error);
     setResolve(response.resolve);
     if (response.resolve) {
-    navigate("/groups", { replace: true });
+    navigate("/admin/groups", { replace: true });
     }
   };
 

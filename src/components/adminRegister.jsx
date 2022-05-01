@@ -135,7 +135,7 @@ let AdminRegister = (props) => {
           Sign up
         </button>
 
-        <p>You already have acount for your etablishement</p>
+        <p>You already have acount for your etablishement ?</p>
         <Link to="/admin/login">Sign in</Link>
       </form>
       </div>
