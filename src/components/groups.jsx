@@ -4,10 +4,11 @@ import add from '../image/public/plus.png';
 import {getGroups} from "../tools/apiServices";
 import '../css/student.css'
 
+let redirect = "";
 let Groups = (props)=>{
     let navigate = useNavigate();
     let [groups, setGroups] = useState([]);
-
+    redirect = props.isAdmin? "/admin/groups/" : "/groups/";
     let getData = async ()=>{
         let isAdmin = props.isAdmin | false;
         let response = await getGroups(props.isAdmin);
@@ -43,9 +44,9 @@ export default Groups;
 
 let Group = (props)=>{
     let navigate = useNavigate();
-
+    
     let onclick=()=>{
-        navigate('/groups/'+props.id, { replace: true });
+        navigate(redirect + props.id, { replace: true });
     }
     return(
         
