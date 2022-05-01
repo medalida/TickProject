@@ -13,6 +13,7 @@ let Card = (props)=>{
         sessionName : 'Progrmmation',
         group : 'L2 INFO A1',
       }
+
       let navigate = useNavigate();
 
       let onClick =()=>{
@@ -30,12 +31,11 @@ let Card = (props)=>{
                     <h4>{info.sessionName}</h4>
                     <h6>{info.group}</h6>
                 </div>
-                
-                    <div id="status" className="mx-4" > </div>
-               
+                <div className="d-flex flex-row align-items-center">
+                <div className="text-danger">status</div> <div id="status" className="mx-4" > </div>
+                </div>
             </div>
         );
-    
 }
  
 export default Card;

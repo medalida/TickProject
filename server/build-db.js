@@ -16,7 +16,6 @@ let drop_tables = ()=>{
     db.prepare('DROP TABLE IF EXISTS admin').run();
 }
 
-
 let create_tables = ()=>{
     
     db.prepare(`CREATE TABLE IF NOT EXISTS workspace (

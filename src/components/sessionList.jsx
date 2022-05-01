@@ -18,15 +18,8 @@ let SessionList =(props)=>{
                 <div className="w-50 border border-secondary mb-5"></div>
                 <div className="list d-flex flex-column  align-items-center overflow-auto w-100 p-2 bg-light rounded"
                 style={{maxHeight:"60vh"}}>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                    {[...Array(10)].map((i,x)=>(<Card/>))}
+
                 </div>
             </div>
         );
